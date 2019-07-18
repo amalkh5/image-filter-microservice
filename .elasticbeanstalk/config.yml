@@ -1,0 +1,20 @@
+branch-defaults:
+  default:
+    environment: image-filter-starter-code-dev
+environment-defaults:
+  image-filter-starter-code-dev:
+    branch: null
+    repository: null
+global:
+  application_name: image-filter-starter-code
+  default_ec2_keyname: aws-eb
+  default_platform: arn:aws:elasticbeanstalk:us-west-2::platform/Node.js running on
+    64bit Amazon Linux/4.9.2
+  default_region: us-west-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application
