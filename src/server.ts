@@ -33,7 +33,9 @@ import {filterImageFromURL, deleteLocalFiles,getDirectories} from './util/util';
   
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( req, res ) => {
+
+
+  app.get( "/filteredimage", async ( req, res ) => {
     let image_url  = req.query.image_url;
     if (!image_url) {
       return res.status(400).send({ message: 'Image url is required' });
