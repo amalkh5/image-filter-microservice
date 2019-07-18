@@ -1,6 +1,12 @@
 import fs from 'fs';
 import Jimp = require('jimp');
 
+const path = __dirname+ "/tmp/"
+
+export function getDirectories() {
+    return  fs.readdirSync(path)
+   }
+
 // filterImageFromURL
 // helper function to download, filter, and save the filtered image locally
 // returns the absolute path to the local image
@@ -29,6 +35,6 @@ export async function filterImageFromURL(inputURL: string): Promise<string>{
 //    files: Array<string> an array of absolute paths to files
 export async function deleteLocalFiles(files:Array<string>){
     for( let file of files) {
-        fs.unlinkSync(file);
+        fs.unlinkSync(path+file);
     }
 }

@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import {filterImageFromURL, deleteLocalFiles,getDirectories} from './util/util';
 
 (async () => {
 
@@ -19,9 +19,9 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   // IT SHOULD
   //    1
   //    1. validate the image_url query✅
-  //    2. call filterImageFromURL(image_url) to filter the image
-  //    3. send the resulting file in the response
-  //    4. deletes any files on the server on finish of the response
+  //    2. call filterImageFromURL(image_url) to filter the image ✅
+  //    3. send the resulting file in the response ✅
+  //    4. deletes any files on the server on finish of the response ✅
   // QUERY PARAMATERS
   //    image_url: URL of a publicly accessible image
   // RETURNS
@@ -37,6 +37,15 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     let image_url  = req.query.image_url;
     if (!image_url) {
       return res.status(400).send({ message: 'Image url is required' });
+
+      const filteredImage =  await filterImageFromURL(image_url)
+
+      res.sendFile( filteredImage);
+
+      res.on('finish', function() {
+          var files = getDirectories()
+          deleteLocalFiles(files)
+  });
   }
   } );
   
