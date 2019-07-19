@@ -28,7 +28,6 @@
     "@types/node": "^11.11.6"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "jimp": "^0.6.4"
+    "express": "^4.16.4"
   }
 }
