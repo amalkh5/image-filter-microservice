@@ -39,7 +39,7 @@ import {filterImageFromURL, deleteLocalFiles,getDirectories} from './util/util';
     let image_url  = req.query.image_url;
     if (!image_url) {
       return res.status(400).send({ message: 'Image url is required' });
-
+    }
       const filteredImage =  await filterImageFromURL(image_url)
 
       res.sendFile( filteredImage);
@@ -48,7 +48,7 @@ import {filterImageFromURL, deleteLocalFiles,getDirectories} from './util/util';
           var files = getDirectories()
           deleteLocalFiles(files)
   });
-  }
+  
   } );
   
 
