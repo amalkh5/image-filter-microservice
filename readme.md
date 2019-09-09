@@ -1,5 +1,5 @@
 # image-filter-microservice
-Node-Express application which runs a simple Python script to process images.
+Node-Express application which process images.
 
 ## Getting Setup
 
